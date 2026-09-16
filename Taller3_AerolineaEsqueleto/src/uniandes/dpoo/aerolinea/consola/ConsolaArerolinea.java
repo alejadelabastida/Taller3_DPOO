@@ -1,11 +1,9 @@
 package uniandes.dpoo.aerolinea.consola;
 
-import java.io.IOException;
 
-import uniandes.dpoo.aerolinea.exceptions.InformacionInconsistenteException;
 import uniandes.dpoo.aerolinea.modelo.Aerolinea;
 import uniandes.dpoo.aerolinea.persistencia.CentralPersistencia;
-import uniandes.dpoo.aerolinea.persistencia.TipoInvalidoException;
+import uniandes.dpoo.aerolinea.modelo.cliente.ClienteNatural;
 
 public class ConsolaArerolinea extends ConsolaBasica
 {
@@ -14,32 +12,37 @@ public class ConsolaArerolinea extends ConsolaBasica
     /**
      * Es un método que corre la aplicación y realmente no hace nada interesante: sólo muestra cómo se podría utilizar la clase Aerolínea para hacer pruebas.
      */
-    public void correrAplicacion( )
+    public void correrAplicacion()
     {
         try
         {
             unaAerolinea = new Aerolinea( );
             // String archivo = this.pedirCadenaAlUsuario( "Digite el nombre del archivo json con la información de una aerolinea" );
-            String archivo = "tiquetes.json"; 
-            unaAerolinea.cargarTiquetes( "./datos/" + archivo, CentralPersistencia.JSON );
+            unaAerolinea.cargarAerolinea( "./datos/aerolinea.json", CentralPersistencia.JSON );
+            unaAerolinea.cargarTiquetes( "./datos/tiquetes.json", CentralPersistencia.JSON );
+
+            System.out.println( "Rutas: " + unaAerolinea.getRutas( ).size( ) );
+            System.out.println( "Vuelos: " + unaAerolinea.getVuelos( ).size( ) );
+            System.out.println( "Clientes: " + unaAerolinea.getClientes( ).size( ) );
+           
+            unaAerolinea.agregarCliente( new ClienteNatural( "Carlos" ) );
+            int valor = unaAerolinea.venderTiquetes( "Carlos", "2024-11-05", "4558", 2 );
+            System.out.println( "Valor de los tiquetes: " + valor );
+            System.out.println( unaAerolinea.consultarSaldoPendienteCliente( "Carlos" ) );
+
+            unaAerolinea.registrarVueloRealizado( "2024-11-05", "4558" );
+            System.out.println( unaAerolinea.consultarSaldoPendienteCliente( "Carlos" ) );
+        
         }
-        catch( TipoInvalidoException e )
-        {
-            e.printStackTrace( );
-        }
-        catch( IOException e )
-        {
-            e.printStackTrace();
-        }
-        catch( InformacionInconsistenteException e )
+        catch(Exception e)
         {
             e.printStackTrace();
         }
     }
 
-    public static void main( String[] args )
+    public static void main( String[] args)
     {
-        ConsolaArerolinea ca = new ConsolaArerolinea( );
-        ca.correrAplicacion( );
+        ConsolaArerolinea ca = new ConsolaArerolinea();
+        ca.correrAplicacion();
     }
 }

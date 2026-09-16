@@ -1,0 +1,40 @@
+{
+  "aeropuertos": [
+    {
+      "nombre": "El Dorado",
+      "codigo": "BOG",
+      "nombreCiudad": "Bogota",
+      "latitud": 4.7,
+      "longitud": -74.1
+    },
+    {
+      "nombre": "Rafael Nunez",
+      "codigo": "CTG",
+      "nombreCiudad": "Cartagena",
+      "latitud": 10.4,
+      "longitud": -75.5
+    }
+  ],
+  "rutas": [
+    {
+      "codigoRuta": "4558",
+      "origen": "BOG",
+      "destino": "CTG",
+      "horaSalida": "0800",
+      "horaLlegada": "0930"
+    }
+  ],
+  "aviones": [
+    {
+      "nombre": "AV001",
+      "capacidad": 5
+    }
+  ],
+  "vuelos": [
+    {
+      "fecha": "2024-11-05",
+      "codigoRuta": "4558",
+      "avion": "AV001"
+    }
+  ]
+}
