@@ -1,0 +1,41 @@
+{
+  "aviones": [{
+    "nombre": "AV001",
+    "capacidad": 5
+  }],
+  "aeropuertos": [
+    {
+      "codigo": "CTG",
+      "latitud": 10.4,
+      "longitud": -75.5,
+      "nombreCiudad": "Cartagena",
+      "nombre": "Rafael Nunez"
+    },
+    {
+      "codigo": "BOG",
+      "latitud": 4.7,
+      "longitud": -74.1,
+      "nombreCiudad": "Bogota",
+      "nombre": "El Dorado"
+    }
+  ],
+  "vuelos": [
+    {
+      "fecha": "2024-11-05",
+      "codigoRuta": "4558",
+      "avion": "AV001"
+    },
+    {
+      "fecha": "2026-01-10",
+      "codigoRuta": "4558",
+      "avion": "AV001"
+    }
+  ],
+  "rutas": [{
+    "codigoRuta": "4558",
+    "horaLlegada": "0930",
+    "origen": "BOG",
+    "destino": "CTG",
+    "horaSalida": "0800"
+  }]
+}
